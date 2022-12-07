@@ -95,7 +95,7 @@ func main() {
 	}()
 
 	// Publish a message to the chat queue
-	publishMessage := func(username, text string) error {
+	publishMessage := func(username, password, text string) error {
 		if err := authenticateUser(username, password); err != nil {
 			return err
 		}
@@ -122,7 +122,7 @@ func main() {
 	}
 
 	// Publish a message as the registered user
-	if err := publishMessage("alice", "Hello, world!"); err != nil {
+	if err := publishMessage("alice", "password123", "Hello, world!"); err != nil {
 		log.Fatal(err)
 	}
 }
